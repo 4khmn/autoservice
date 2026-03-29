@@ -4,6 +4,7 @@ import autoservice.model.dto.response.OrderResponseDto;
 import autoservice.model.entities.GarageSpot;
 import autoservice.model.entities.Master;
 import autoservice.model.entities.Order;
+import autoservice.model.entities.User;
 import autoservice.model.enums.ActiveOrdersSortEnum;
 import autoservice.model.enums.OrderStatus;
 import autoservice.model.enums.OrdersSortByTimeFrameEnum;
@@ -14,6 +15,7 @@ import autoservice.model.mapper.OrderMapper;
 import autoservice.model.repository.GarageSpotRepository;
 import autoservice.model.repository.MasterRepository;
 import autoservice.model.repository.OrderRepository;
+import autoservice.model.repository.UserRepository;
 import autoservice.model.service.domain.GarageSpotDomainService;
 import autoservice.model.service.domain.MasterDomainService;
 import autoservice.model.utils.PropertyUtil;
@@ -34,6 +36,7 @@ public class OrderService {
     private transient final MasterRepository masterRepository;
     private transient final OrderMapper mapper;
     private final PropertyUtil propertyUtil;
+    private final UserRepository userRepository;
 
     //4 список заказов
     @Transactional
@@ -126,15 +129,18 @@ public class OrderService {
     }
 
     @Transactional
-    public long addOrderFromImport(String description, Master master, GarageSpot garageSpot, LocalDateTime startTime, LocalDateTime endtime, BigDecimal price) {
-        Order order = new Order(description, master, garageSpot, startTime, endtime, price);
+    public long addOrderFromImport(String description, Master master, GarageSpot garageSpot, LocalDateTime startTime, LocalDateTime endtime, BigDecimal price, User user) {
+        Order order = new Order(description, master, garageSpot, startTime, endtime, price, user);
         orderRepository.save(order);
         return order.getId();
     }
 
     //сама записывает на ближайшее время
     @Transactional
-    public OrderResponseDto addOrder(String description, int durationInHours, BigDecimal price) {
+    public OrderResponseDto addOrder(String description, int durationInHours, BigDecimal price, User inputUser) {
+        User user = userRepository.findByUsername(inputUser.getUsername()).orElseThrow(
+                () -> new NotFoundException("user with username " + inputUser.getUsername() + " not found")
+        );
         LocalDateTime now = LocalDateTime.now();
         LocalDateTime bestStartTime = null;
         Master selectedMaster = null;
@@ -158,17 +164,20 @@ public class OrderService {
             throw new RuntimeException("В системе отсувствует мастер или парковочное место");
         }
         LocalDateTime endTime = bestStartTime.plusHours(durationInHours);
-        return this.addOrder(description, selectedMaster, selectedSpot, bestStartTime, endTime, price);
+        return this.addOrder(description, selectedMaster, selectedSpot, bestStartTime, endTime, price, user);
     }
 
     //запись на конкретное время (-1 - записаться не удалось)
     @Transactional
-    public OrderResponseDto addOrderAtCurrentTime(LocalDateTime date, String description, int durationInHours, BigDecimal price) {
+    public OrderResponseDto addOrderAtCurrentTime(LocalDateTime date, String description, int durationInHours, BigDecimal price, User inputUser) {
+        User user = userRepository.findByUsername(inputUser.getUsername()).orElseThrow(
+                () -> new NotFoundException("user with username " + inputUser.getUsername() + " not found")
+        );
         for (var garageSpot : this.getGarageSpotsWithCalendar()) {
             if (garageSpot.isAvailable(date, date.plusHours(durationInHours))) {
                 for (var master : this.getMastersWithCalendar()) {
                     if (master.isAvailable(date, date.plusHours(durationInHours))) {
-                        return this.addOrder(description, master, garageSpot, date, date.plusHours(durationInHours), price);
+                        return this.addOrder(description, master, garageSpot, date, date.plusHours(durationInHours), price, user);
                     }
                 }
             }
@@ -177,7 +186,10 @@ public class OrderService {
     }
 
     @Transactional
-    public OrderResponseDto addOrderWithCurrentMaster(String description, int durationInHours, BigDecimal price, Long masterId) {
+    public OrderResponseDto addOrderWithCurrentMaster(String description, int durationInHours, BigDecimal price, Long masterId, User inputUser) {
+        User user = userRepository.findByUsername(inputUser.getUsername()).orElseThrow(
+                () -> new NotFoundException("user with username " + inputUser.getUsername() + " not found")
+        );
         Master master = masterRepository.findById(masterId).orElseThrow(
                 () -> new NotFoundException("Master with id=" + masterId + " not found")
         );
@@ -199,7 +211,7 @@ public class OrderService {
             throw new RuntimeException("В системе отсувствует мастер или парковочное место");
         }
         LocalDateTime endTime = bestStartTime.plusHours(durationInHours);
-        return this.addOrder(description, master, selectedSpot, bestStartTime, endTime, price);
+        return this.addOrder(description, master, selectedSpot, bestStartTime, endTime, price, user);
     }
 
     @Transactional
@@ -352,8 +364,8 @@ public class OrderService {
         return orderRepository.count();
     }
 
-    private OrderResponseDto addOrder(String description, Master master, GarageSpot garageSpot, LocalDateTime startTime, LocalDateTime endtime, BigDecimal price) {
-        Order order = new Order(description, master, garageSpot, startTime, endtime, price);
+    private OrderResponseDto addOrder(String description, Master master, GarageSpot garageSpot, LocalDateTime startTime, LocalDateTime endtime, BigDecimal price, User user) {
+        Order order = new Order(description, master, garageSpot, startTime, endtime, price, user);
         orderRepository.save(order);
         return mapper.toDto(order);
     }

@@ -25,11 +25,6 @@ public class OrderRepository extends HibernateAbstractDAO<Order, Long> {
         return getSession().createQuery(hql, Order.class).getResultList();
     }
 
-    @Override
-    public Long count() {
-        String hql = "select count(*) from Order";
-        return getSession().createQuery(hql, Long.class).getSingleResult();
-    }
 
     public List<Object[]> findTimeSlotsForAllGarageSpots() {
         String hql = """

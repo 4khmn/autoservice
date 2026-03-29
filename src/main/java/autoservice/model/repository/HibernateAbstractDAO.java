@@ -49,5 +49,8 @@ public abstract class HibernateAbstractDAO<T, PK extends Serializable> implement
         getSession().update(entity);
     }
 
-    public abstract Long count();
+    @Override
+    public Long count() {
+        return getSession().createQuery("select count(*) from " + type.getName(), Long.class).getSingleResult();
+    }
 }

@@ -2,6 +2,8 @@ package autoservice.model.service.io.imports;
 
 import autoservice.model.dto.create.GarageSpotCreateDto;
 import autoservice.model.dto.create.MasterCreateDto;
+import autoservice.model.entities.User;
+import autoservice.model.service.UserService;
 import autoservice.model.utils.PropertyUtil;
 import autoservice.model.entities.GarageSpot;
 import autoservice.model.entities.Master;
@@ -31,10 +33,11 @@ public class CsvImportService {
     private final GarageSpotService garageSpotService;
     private final MasterService masterService;
     private final PropertyUtil propertyUtil;
+    private final UserService userService;
 
     private final String garageSpotHeader = "id,size,hasLift,hasPit";
     private final String masterHeader = "id,name,salary";
-    private final String orderHeader = "id,description,masterId,garageSpotId,startTime,endTime,orderStatus,price";
+    private final String orderHeader = "id,description,masterId,garageSpotId,startTime,endTime,orderStatus,price,userId";
 
     @Transactional
     public void importMasters() {
@@ -187,9 +190,10 @@ public class CsvImportService {
                         LocalDateTime endTime;
                         OrderStatus orderStatus;
                         BigDecimal price;
+                        Long userId;
                         try {
                             String[] split = line.split(",");
-                            if (split.length != 8) {
+                            if (split.length != 9) {
                                 log.error("Invalid structure of orders file line: {}", line);
                                 throw new ImportException("Неверная структура строки: " + line);
                             }
@@ -201,6 +205,7 @@ public class CsvImportService {
                             endTime = LocalDateTime.parse(split[5]);
                             orderStatus = OrderStatus.valueOf(split[6]);
                             price = new BigDecimal(split[7]);
+                            userId = Long.parseLong(split[8]);
                         } catch (Exception e) {
                             log.error("Invalid orders file line: {}", line);
                             throw new CsvParsingException("Ошибка в строке (line - " + line + ")\n" + e.getMessage());
@@ -211,6 +216,8 @@ public class CsvImportService {
                             order.setOrderStatus(orderStatus);
                             order.setPrice(price);
                             order.setDescription(description);
+                            User user = userService.getUserById(userId);
+                            order.setUser(user);
                             Master master = masterService.getMasterByIdImport(masterId);
                             GarageSpot garageSpot = garageSpotService.getGarageSpotByIdImport(garageId);
                             if (master == null || garageSpot == null) {
@@ -244,9 +251,10 @@ public class CsvImportService {
                             //новый заказ
                             Master master = masterService.getMasterByIdImport(masterId);
                             GarageSpot garageSpot = garageSpotService.getGarageSpotByIdImport(garageId);
+                            User user = userService.getUserById(userId);
                             if (master != null && garageSpot != null) {
                                 if (master.isAvailable(startTime, endTime) && garageSpot.isAvailable(startTime, endTime)) {
-                                    orderService.addOrderFromImport(description, master, garageSpot, startTime, endTime, price);
+                                    orderService.addOrderFromImport(description, master, garageSpot, startTime, endTime, price, user);
                                 } else {
                                     //нельзя из за расписания мастера или гаража
                                     log.error("Impossible to add due master or garage spot schedule, line: {}", line);

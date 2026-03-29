@@ -19,4 +19,5 @@ public interface GenericDAO <T, PK extends Serializable> {
     Long count();
 
 
+
 }

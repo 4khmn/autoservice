@@ -16,9 +16,5 @@ public class MasterRepository extends HibernateAbstractDAO<Master, Long> {
         return getSession().createQuery(hql, Master.class).getResultList();
     }
 
-    @Override
-    public Long count() {
-        String hql = "select count(*) from Master m";
-        return getSession().createQuery(hql, Long.class).getSingleResult();
-    }
+
 }

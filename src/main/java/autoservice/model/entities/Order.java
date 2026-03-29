@@ -59,6 +59,10 @@ public class Order implements Comparable<Order>, Identifiable {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
     @PrePersist
     public void prePersist() {
         if (orderStatus == null) {
@@ -119,7 +123,8 @@ public class Order implements Comparable<Order>, Identifiable {
                  GarageSpot garageSpot,
                  LocalDateTime startTime,
                  LocalDateTime endTime,
-                 BigDecimal price) {
+                 BigDecimal price,
+                 User user) {
         if (startTime.isBefore(endTime)) {
             this.description = description;
             this.master = master;
@@ -128,6 +133,7 @@ public class Order implements Comparable<Order>, Identifiable {
             this.endTime = endTime;
             this.price = price;
             this.createdAt = LocalDateTime.now();
+            this.user = user;
         } else {
             throw new IllegalArgumentException("Invalid time settings: start time must be before end time");
         }

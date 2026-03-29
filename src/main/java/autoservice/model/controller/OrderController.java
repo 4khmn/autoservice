@@ -3,6 +3,7 @@ package autoservice.model.controller;
 import autoservice.model.dto.create.OrderCreateDto;
 import autoservice.model.dto.response.MasterResponseDto;
 import autoservice.model.dto.response.OrderResponseDto;
+import autoservice.model.entities.User;
 import autoservice.model.enums.ActiveOrdersSortEnum;
 import autoservice.model.enums.OrdersSortByTimeFrameEnum;
 import autoservice.model.enums.OrdersSortEnum;
@@ -13,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,18 +47,18 @@ public class OrderController {
 
 
     @PostMapping
-    public ResponseEntity<OrderResponseDto> createOrder(@RequestBody OrderCreateDto dto) {
+    public ResponseEntity<OrderResponseDto> createOrder(@RequestBody OrderCreateDto dto, @AuthenticationPrincipal User user) {
         log.info("POST /api/orders - creating order={}", dto);
         OrderResponseDto order;
         if (dto.date() == null) {
             if (dto.masterId() == null) {
-                order = orderService.addOrder(dto.description(), dto.durationInHours(), dto.price());
+                order = orderService.addOrder(dto.description(), dto.durationInHours(), dto.price(), user);
             } else {
-                order = orderService.addOrderWithCurrentMaster(dto.description(), dto.durationInHours(), dto.price(), dto.masterId());
+                order = orderService.addOrderWithCurrentMaster(dto.description(), dto.durationInHours(), dto.price(), dto.masterId(), user);
             }
         } else {
             order = orderService.addOrderAtCurrentTime(
-                    dto.date(), dto.description(), dto.durationInHours(), dto.price()
+                    dto.date(), dto.description(), dto.durationInHours(), dto.price(), user
             );
         }
         log.info("order with id={} was successfully created", order.id());

@@ -9,9 +9,4 @@ public class GarageSpotRepository extends HibernateAbstractDAO<GarageSpot, Long>
         super(GarageSpot.class);
     }
 
-    @Override
-    public Long count() {
-        String hql = "select count(*) from GarageSpot";
-        return getSession().createQuery(hql, Long.class).getSingleResult();
-    }
 }
