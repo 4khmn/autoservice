@@ -90,7 +90,7 @@ public class GarageSpotService {
             return null;
         } else {
             garageSpot.setCalendar(
-                    orderRepository.findTimeSlotsByMaster(id)
+                    orderRepository.findTimeSlotsByGarageSpot(id)
             );
         }
         return garageSpot;
@@ -99,7 +99,6 @@ public class GarageSpotService {
     //4 список свободных мест в сервисных гаражах
     @Transactional(readOnly = true)
     public List<GarageSpotResponseDto> getFreeSpots() {
-        log.info("Fetching free garage spots");
         List<GarageSpot> freeGarageSpots = new ArrayList<>();
         List<GarageSpot> garageSpots = getGarageSpots();
         for (var v : garageSpots) {
@@ -107,7 +106,6 @@ public class GarageSpotService {
                 freeGarageSpots.add(v);
             }
         }
-        log.info("Free garage spots successfully found");
         return freeGarageSpots.stream().map(mapper::toDto).toList();
     }
 }
