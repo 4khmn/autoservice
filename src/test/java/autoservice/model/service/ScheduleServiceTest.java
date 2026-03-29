@@ -40,11 +40,12 @@ class ScheduleServiceTest {
         g1.setId(1L);
         GarageSpot g2 = new GarageSpot();
         g2.setId(2L);
-        given(garageSpotRepository.findAll()).willReturn(List.of(g1, g2));
-        given(orderRepository.findTimeSlotsForAllGarageSpots()).willReturn(new ArrayList<>());
 
         Master m = new Master();
         m.setId(1L);
+        given(garageSpotRepository.findAll()).willReturn(List.of(g1, g2));
+        given(orderRepository.findTimeSlotsForAllGarageSpots()).willReturn(new ArrayList<>());
+
         given(masterRepository.findAll()).willReturn(List.of(m));
         given(orderRepository.findTimeSlotsForAllMasters()).willReturn(new ArrayList<>());
 
@@ -63,13 +64,14 @@ class ScheduleServiceTest {
 
         GarageSpot s = new GarageSpot();
         s.setId(1L);
-        given(garageSpotRepository.findAll()).willReturn(List.of(s));
-        given(orderRepository.findTimeSlotsForAllGarageSpots()).willReturn(new ArrayList<>());
 
         Master m1 = new Master();
         m1.setId(1L);
         Master m2 = new Master();
         m2.setId(2L);
+
+        given(garageSpotRepository.findAll()).willReturn(List.of(s));
+        given(orderRepository.findTimeSlotsForAllGarageSpots()).willReturn(new ArrayList<>());
 
         given(masterRepository.findAll()).willReturn(List.of(m1, m2));
         given(orderRepository.findTimeSlotsForAllMasters()).willReturn(new ArrayList<>());
@@ -89,19 +91,20 @@ class ScheduleServiceTest {
 
         Master master = new Master();
         master.setId(1L);
-        given(masterRepository.findAll()).willReturn(List.of(master));
 
         List<Object[]> masterSlots = new ArrayList<>();
         masterSlots.add(new Object[]{ 1L, testDate.minusHours(3), testDate.plusHours(3) });
-        given(orderRepository.findTimeSlotsForAllMasters()).willReturn(masterSlots);
 
         GarageSpot spot = new GarageSpot();
         spot.setId(1L);
-        given(garageSpotRepository.findAll()).willReturn(List.of(spot));
 
         List<Object[]> spotSlots = new ArrayList<>();
         spotSlots.add(new Object[]{ 1L, testDate.minusHours(3), testDate.plusHours(3) });
+
         given(orderRepository.findTimeSlotsForAllGarageSpots()).willReturn(spotSlots);
+        given(masterRepository.findAll()).willReturn(List.of(master));
+        given(orderRepository.findTimeSlotsForAllMasters()).willReturn(masterSlots);
+        given(garageSpotRepository.findAll()).willReturn(List.of(spot));
 
         Long result = scheduleService.getNumberOfFreeSpotsByDate(testDate);
 
@@ -159,8 +162,6 @@ class ScheduleServiceTest {
         Master master = new Master();
         master.setId(10L);
 
-        given(garageSpotRepository.findAll()).willReturn(List.of(spot1, spot2));
-        given(masterRepository.findAll()).willReturn(List.of(master));
 
         List<Object[]> spot1Slots = new ArrayList<>();
         spot1Slots.add(new Object[]{ 1L, now.minusHours(1), now.plusHours(5) });
@@ -168,6 +169,8 @@ class ScheduleServiceTest {
         List<Object[]> spot2Slots = new ArrayList<>();
         spot2Slots.add(new Object[]{ 2L, now.minusHours(1), now.plusHours(2) });
 
+        given(garageSpotRepository.findAll()).willReturn(List.of(spot1, spot2));
+        given(masterRepository.findAll()).willReturn(List.of(master));
         given(orderRepository.findTimeSlotsForAllGarageSpots()).willReturn(List.of(spot1Slots.get(0), spot2Slots.get(0)));
         given(orderRepository.findTimeSlotsForAllMasters()).willReturn(new ArrayList<>());
 
@@ -185,16 +188,16 @@ class ScheduleServiceTest {
         Master master = new Master();
         master.setId(10L);
 
-        given(garageSpotRepository.findAll()).willReturn(List.of(spot));
-        given(masterRepository.findAll()).willReturn(List.of(master));
-
         List<Object[]> masterSlots = new ArrayList<>();
         masterSlots.add(new Object[]{ 10L, LocalDateTime.now().minusDays(1), LocalDateTime.now().plusYears(1) });
+
+        given(garageSpotRepository.findAll()).willReturn(List.of(spot));
+        given(masterRepository.findAll()).willReturn(List.of(master));
         given(orderRepository.findTimeSlotsForAllMasters()).willReturn(masterSlots);
         given(orderRepository.findTimeSlotsForAllGarageSpots()).willReturn(new ArrayList<>());
 
-        RuntimeException exception = assertThrows(RuntimeException.class, () ->
-                scheduleService.getClosestDate(1)
+        RuntimeException exception = assertThrows(RuntimeException.class,
+                () -> scheduleService.getClosestDate(1)
         );
 
         assertEquals("No available time slot found", exception.getMessage());

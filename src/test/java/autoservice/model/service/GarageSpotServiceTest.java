@@ -154,7 +154,7 @@ public class GarageSpotServiceTest {
 
 
     @Test
-    void addGarageSpot_ShouldReturnGarageSpotResponseDto_WhenSizeMoreThat8_WnenItIsAllowed() {
+    void addGarageSpot_ShouldReturnGarageSpotResponseDto_WhenSizeMoreThat8_WhenItIsAllowed() {
         GarageSpotCreateDto garageSpotCreateDto = new GarageSpotCreateDto(10, true, true);
         GarageSpotResponseDto garageSpotResponseDto = new GarageSpotResponseDto(1L, 10, true, true);
         given(propertyUtil.isGarageSpotAllowToAddRemove()).willReturn(true);

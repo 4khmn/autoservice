@@ -32,6 +32,9 @@ public class MasterService {
     @Transactional(readOnly = true)
     public List<MasterResponseDto> mastersSort(MastersSortEnum decision) {
         List<Master> sortedMasters;
+        if (decision == null) {
+            throw new IllegalArgumentException("Decision cannot be null");
+        }
         switch (decision) {
             case BY_NAME:
                 //по алфавиту
@@ -93,7 +96,7 @@ public class MasterService {
     @Transactional(readOnly = true)
     public MasterResponseDto getMasterById(long id) {
         Master master = masterRepository.findById(id).orElseThrow(
-                () -> new NotFoundException("master with id: " + id + " not found")
+                () -> new NotFoundException("Master with id: " + id + " not found")
         );
         master.setCalendar(
                 orderRepository.findTimeSlotsByMaster(id)
