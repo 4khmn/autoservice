@@ -42,6 +42,9 @@ public class OrderService {
     @Transactional
     public List<OrderResponseDto> ordersSort(OrdersSortEnum decision) {
         List<Order> sortedOrders;
+        if (decision == null) {
+            throw new IllegalArgumentException("Неизвестный тип: " + decision);
+        }
         switch (decision) {
             case BY_CREATION_DATE:
                 //по дате подачи
@@ -72,6 +75,9 @@ public class OrderService {
     @Transactional
     public List<OrderResponseDto> activeOrdersSort(ActiveOrdersSortEnum decision) {
         List<Order> sortedOrders;
+        if (decision == null) {
+            throw new IllegalArgumentException("Неизвестный тип: " + decision);
+        }
         switch (decision) {
             case BY_CREATION_DATE:
                 //по дате подачи
@@ -106,6 +112,12 @@ public class OrderService {
     @Transactional(readOnly = true)
     public List<OrderResponseDto> ordersSortByTimeFrame(LocalDateTime start, LocalDateTime end, OrdersSortByTimeFrameEnum decision) {
         List<Order> ordersAtCurrentTime;
+        if (decision == null) {
+            throw new IllegalArgumentException("Неизвестный тип: " + decision);
+        }
+        if (start == null || end == null) {
+            throw new RuntimeException("start and end can not be null!");
+        }
         switch (decision) {
             case BY_CREATION_DATE:
                 //по дате подачи
@@ -356,7 +368,6 @@ public class OrderService {
         } else {
             throw new PermissionException("It is not allowed to shift orders due to application.properties!");
         }
-
     }
 
     @Transactional(readOnly = true)
