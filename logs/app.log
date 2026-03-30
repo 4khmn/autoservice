@@ -2694,3 +2694,66 @@ autoservice.model.exceptions.ImportException: Некорректный хеде�
 	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
 	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237)
 	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)
+[22:03:06.249] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[22:03:06.252] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[22:03:06.256] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 3 ms
+[22:03:06.420] [main] INFO  autoservice.model.controller.GarageSpotController - POST /api/garage-spots - creating garageSpot=GarageSpotCreateDto[size=15.0, hasLift=false, hasPit=true]
+[22:03:06.432] [main] INFO  autoservice.model.controller.GarageSpotController - garageSpot with id=100 was successfully created
+[22:03:06.513] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[22:03:06.513] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[22:03:06.513] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[22:03:06.519] [main] INFO  autoservice.model.controller.GarageSpotController - DELETE /api/garage-spots/5 - deleting garageSpot by id=5
+[22:03:06.519] [main] INFO  autoservice.model.controller.GarageSpotController - garageSpot with id=5 was successfully deleted
+[22:03:06.534] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[22:03:06.535] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[22:03:06.535] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[22:03:06.536] [main] INFO  autoservice.model.controller.GarageSpotController - GET /api/garage-spots/1 - fetching garageSpot by id=1
+[22:03:06.537] [main] INFO  autoservice.model.controller.GarageSpotController - garageSpot with id=1 was successfully fetched
+[22:05:07.867] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[22:05:07.869] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[22:05:07.872] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 2 ms
+[22:05:08.019] [main] INFO  autoservice.model.controller.GarageSpotController - POST /api/garage-spots - creating garageSpot=GarageSpotCreateDto[size=15.0, hasLift=false, hasPit=true]
+[22:05:08.032] [main] INFO  autoservice.model.controller.GarageSpotController - garageSpot with id=100 was successfully created
+[22:05:08.108] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[22:05:08.108] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[22:05:08.108] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[22:05:08.113] [main] INFO  autoservice.model.controller.GarageSpotController - DELETE /api/garage-spots/5 - deleting garageSpot by id=5
+[22:05:08.113] [main] INFO  autoservice.model.controller.GarageSpotController - garageSpot with id=5 was successfully deleted
+[22:05:08.129] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[22:05:08.129] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[22:05:08.129] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[22:05:08.131] [main] INFO  autoservice.model.controller.GarageSpotController - GET /api/garage-spots/1 - fetching garageSpot by id=1
+[22:05:08.131] [main] INFO  autoservice.model.controller.GarageSpotController - garageSpot with id=1 was successfully fetched
+[22:09:33.560] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[22:09:33.563] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[22:09:33.566] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 2 ms
+[22:09:33.649] [main] INFO  autoservice.model.controller.GarageSpotController - GET /api/garage-spots/999 - fetching garageSpot by id=999
+[22:12:20.816] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[22:12:20.819] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[22:12:20.819] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[22:12:20.901] [main] INFO  autoservice.model.controller.GarageSpotController - GET /api/garage-spots/999 - fetching garageSpot by id=999
+[22:12:20.997] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[22:12:20.998] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[22:12:20.998] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[22:12:21.038] [main] INFO  autoservice.model.controller.GarageSpotController - POST /api/garage-spots - creating garageSpot=GarageSpotCreateDto[size=15.0, hasLift=false, hasPit=true]
+[22:12:21.038] [main] INFO  autoservice.model.controller.GarageSpotController - garageSpot with id=100 was successfully created
+[22:12:21.089] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[22:12:21.089] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[22:12:21.089] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[22:12:21.089] [main] INFO  autoservice.model.controller.GarageSpotController - DELETE /api/garage-spots/5 - deleting garageSpot by id=5
+[22:12:21.089] [main] INFO  autoservice.model.controller.GarageSpotController - garageSpot with id=5 was successfully deleted
+[22:12:21.112] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[22:12:21.112] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[22:12:21.112] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[22:12:21.112] [main] INFO  autoservice.model.controller.GarageSpotController - GET /api/garage-spots/1 - fetching garageSpot by id=1
+[22:12:21.112] [main] INFO  autoservice.model.controller.GarageSpotController - garageSpot with id=1 was successfully fetched
+[23:19:58.592] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[23:19:58.595] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[23:19:58.598] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 3 ms
+[23:19:58.667] [main] INFO  autoservice.model.controller.GarageSpotController - GET /api/garage-spots/free - fetching all free garageSpots
+[23:19:58.669] [main] INFO  autoservice.model.controller.GarageSpotController - free garageSpots was  successfully fetched
+[23:20:03.132] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[23:20:03.135] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[23:20:03.139] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 3 ms
+[23:20:03.225] [main] INFO  autoservice.model.controller.GarageSpotController - GET /api/garage-spots - fetching all garageSpots
+[23:20:03.227] [main] INFO  autoservice.model.controller.GarageSpotController - garageSpots was successfully fetched
