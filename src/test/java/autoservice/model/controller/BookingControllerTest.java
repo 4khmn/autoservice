@@ -44,7 +44,7 @@ public class BookingControllerTest {
 
     @Test
     void getFreeSpotsCount_ShouldReturnLong()  throws Exception {
-        LocalDateTime date = LocalDateTime.now();
+        LocalDateTime date = LocalDateTime.of(2026, 4, 1, 12, 30, 0);
         given(scheduleService.getNumberOfFreeSpotsByDate(date)).willReturn(1L);
 
         mockMvc.perform(get("/api/schedule/free-spots")
@@ -61,13 +61,13 @@ public class BookingControllerTest {
 
     @Test
     void getClosestAvailableDate_ShouldReturnLocalDateTime()  throws Exception {
-        LocalDateTime date = LocalDateTime.now().withNano(0);
+        LocalDateTime date = LocalDateTime.of(2026, 4, 1, 12, 30, 0);
         given(scheduleService.getClosestDate(1)).willReturn(date);
 
         mockMvc.perform(get("/api/schedule/closest-date")
                         .param("duration", "1"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$").value(date.toString()));
+                .andExpect(jsonPath("$").value(org.hamcrest.Matchers.containsString("2026-04-01T12:30:00")));
     }
 
     @Test
