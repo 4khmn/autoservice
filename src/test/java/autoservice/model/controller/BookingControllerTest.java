@@ -30,6 +30,7 @@ public class BookingControllerTest {
     private BookingController bookingController;
 
     private final ObjectMapper objectMapper = new ObjectMapper();
+
     @BeforeEach
     void setUp() {
         objectMapper.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule());

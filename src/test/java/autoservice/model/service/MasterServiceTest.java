@@ -2,13 +2,11 @@ package autoservice.model.service;
 
 import autoservice.model.dto.create.MasterCreateDto;
 import autoservice.model.dto.response.MasterResponseDto;
-import autoservice.model.entities.GarageSpot;
 import autoservice.model.entities.Master;
 import autoservice.model.entities.Order;
 import autoservice.model.entities.TimeSlot;
 import autoservice.model.enums.MastersSortEnum;
 import autoservice.model.exceptions.NotFoundException;
-import autoservice.model.exceptions.PermissionException;
 import autoservice.model.mapper.MasterMapper;
 import autoservice.model.repository.MasterRepository;
 import autoservice.model.repository.OrderRepository;
@@ -26,7 +24,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
-import static org.postgresql.hostchooser.HostRequirement.master;
 
 @ExtendWith(MockitoExtension.class)
 public class MasterServiceTest {

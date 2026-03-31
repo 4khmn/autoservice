@@ -1,8 +1,6 @@
 package autoservice.model.service;
 
 import autoservice.model.entities.User;
-import autoservice.model.enums.Role;
-import autoservice.model.exceptions.NotFoundException;
 import autoservice.model.repository.UserRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

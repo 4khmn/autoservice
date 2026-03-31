@@ -42,7 +42,7 @@ class GarageSpotControllerTest {
 
     @BeforeEach
     void setUp() {
-        mockMvc = mockMvc = MockMvcBuilders.standaloneSetup(garageSpotController)
+        mockMvc = MockMvcBuilders.standaloneSetup(garageSpotController)
                 .setControllerAdvice(new GlobalExceptionHandler())
                 .build();
     }

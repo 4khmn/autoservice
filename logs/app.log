@@ -3996,3 +3996,180 @@ org.springframework.security.authentication.BadCredentialsException: Invalid use
 [12:35:36.122] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 3 ms
 [12:35:36.207] [main] INFO  autoservice.model.controller.BookingController - GET /api/schedule/closest-date - fetching closest date by duration 1
 [12:35:36.210] [main] INFO  autoservice.model.controller.BookingController - Closest date with duration=1 successfully found
+[12:35:42.973] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:42.976] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:42.980] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 3 ms
+[12:35:43.078] [main] INFO  autoservice.model.controller.MasterController - GET /api/masters/sort?decision=BY_NAME
+[12:35:43.082] [main] INFO  autoservice.model.controller.MasterController - Masters successfully sorted by decision=BY_NAME
+[12:35:43.206] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.206] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.206] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.213] [main] INFO  autoservice.model.controller.MasterController - GET /api/masters/999 - fetching master by id=999
+[12:35:43.234] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.234] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.234] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.237] [main] INFO  autoservice.model.controller.MasterController - GET /api/masters - fetching all masters
+[12:35:43.238] [main] INFO  autoservice.model.controller.MasterController - masters was successfully fetched
+[12:35:43.260] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.260] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.260] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.262] [main] INFO  autoservice.model.controller.MasterController - DELETE /api/masters/5 - deleting master by id=5
+[12:35:43.263] [main] INFO  autoservice.model.controller.MasterController - master with id=5 was successfully deleted
+[12:35:43.281] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.282] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.282] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.284] [main] INFO  autoservice.model.controller.MasterController - GET /api/masters/1 - fetching master by id=1
+[12:35:43.284] [main] INFO  autoservice.model.controller.MasterController - master with id=1 was successfully fetched
+[12:35:43.300] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.300] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.300] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.353] [main] INFO  autoservice.model.controller.MasterController - POST /api/masters - creating master=MasterCreateDto[name=denis, salary=1]
+[12:35:43.355] [main] INFO  autoservice.model.controller.MasterController - master with id=1 was successfully created
+[12:35:43.368] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.369] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.369] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.372] [main] INFO  autoservice.model.controller.MasterController - GET /api/masters/1/active-order - fetching order by master with id=1
+[12:35:43.372] [main] INFO  autoservice.model.controller.MasterController - order with id=1 by master with id=1 was successfully fetched
+[12:35:43.443] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.443] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.443] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.446] [main] INFO  autoservice.model.controller.GarageSpotController - GET /api/garage-spots/999 - fetching garageSpot by id=999
+[12:35:43.457] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.457] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.457] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.463] [main] INFO  autoservice.model.controller.GarageSpotController - POST /api/garage-spots - creating garageSpot=GarageSpotCreateDto[size=15.0, hasLift=false, hasPit=true]
+[12:35:43.466] [main] INFO  autoservice.model.controller.GarageSpotController - garageSpot with id=100 was successfully created
+[12:35:43.477] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.477] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.478] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.479] [main] INFO  autoservice.model.controller.GarageSpotController - DELETE /api/garage-spots/5 - deleting garageSpot by id=5
+[12:35:43.479] [main] INFO  autoservice.model.controller.GarageSpotController - garageSpot with id=5 was successfully deleted
+[12:35:43.488] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.488] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.488] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.489] [main] INFO  autoservice.model.controller.GarageSpotController - GET /api/garage-spots - fetching all garageSpots
+[12:35:43.489] [main] INFO  autoservice.model.controller.GarageSpotController - garageSpots was successfully fetched
+[12:35:43.499] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.500] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.500] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.500] [main] INFO  autoservice.model.controller.GarageSpotController - GET /api/garage-spots/1 - fetching garageSpot by id=1
+[12:35:43.501] [main] INFO  autoservice.model.controller.GarageSpotController - garageSpot with id=1 was successfully fetched
+[12:35:43.509] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.510] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.510] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.510] [main] INFO  autoservice.model.controller.GarageSpotController - GET /api/garage-spots/free - fetching all free garageSpots
+[12:35:43.510] [main] INFO  autoservice.model.controller.GarageSpotController - free garageSpots was  successfully fetched
+[12:35:43.522] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.522] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.522] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.523] [main] INFO  autoservice.model.controller.OrderController - GET /api/orders/1 - fetching order by id=1
+[12:35:43.523] [main] INFO  autoservice.model.controller.OrderController - order with id=1 was successfully fetched
+[12:35:43.533] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.534] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.534] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.557] [main] INFO  autoservice.model.controller.OrderController - POST /api/orders - creating order=OrderCreateDto[date=null, description=null, durationInHours=1, price=null, masterId=null]
+[12:35:43.564] [main] INFO  autoservice.model.controller.OrderController - order with id=1 was successfully created
+[12:35:43.578] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.579] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.579] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.580] [main] INFO  autoservice.model.controller.OrderController - PATCH /api/orders/1/close - closing order with id=1
+[12:35:43.580] [main] INFO  autoservice.model.controller.OrderController - Order with id=1 successfully closed
+[12:35:43.590] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.590] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.591] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+[12:35:43.592] [main] INFO  autoservice.model.controller.OrderController - PATCH /api/orders/1/shift - shifting order with id=1
+[12:35:43.592] [main] INFO  autoservice.model.controller.OrderController - Order with id=1 successfully shifted
+[12:35:43.602] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.603] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.603] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.605] [main] INFO  autoservice.model.controller.OrderController - GET /api/orders/999 - fetching order by id=999
+[12:35:43.617] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.617] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.617] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.618] [main] INFO  autoservice.model.controller.OrderController - DELETE /api/orders - deleting order=1
+[12:35:43.618] [main] INFO  autoservice.model.controller.OrderController - order with id=1 was successfully deleted
+[12:35:43.629] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.629] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.629] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.644] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.645] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.645] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.647] [main] INFO  autoservice.model.controller.OrderController - GET /api/orders/active?sort=BY_CREATION_DATE - sorting active orders by decision=BY_CREATION_DATE
+[12:35:43.648] [main] INFO  autoservice.model.controller.OrderController - Active orders successfully sorted by decision=BY_CREATION_DATE
+[12:35:43.660] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.660] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.660] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.661] [main] INFO  autoservice.model.controller.OrderController - GET /api/orders?sort=BY_CREATION_DATE - sorting orders by decision=BY_CREATION_DATE
+[12:35:43.662] [main] INFO  autoservice.model.controller.OrderController - Orders successfully sorted by decision=BY_CREATION_DATE
+[12:35:43.674] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.674] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.675] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+[12:35:43.676] [main] INFO  autoservice.model.controller.OrderController - Getting master by order with id1
+[12:35:43.676] [main] INFO  autoservice.model.controller.OrderController - Master successfully found by order with master_id=10
+[12:35:43.688] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.688] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.688] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.694] [main] INFO  autoservice.model.controller.OrderController - GET /api/orders/history - sorting orders by time frame [2026-03-30T12:35:43.689109300 - 2026-03-31T12:35:43.689109300] by decision=BY_CREATION_DATE
+[12:35:43.695] [main] INFO  autoservice.model.controller.OrderController - Orders successfully sorted by time frame [2026-03-30T12:35:43.689109300 - 2026-03-31T12:35:43.689109300] by decision=BY_CREATION_DATE
+[12:35:43.708] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.708] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.708] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.710] [main] INFO  autoservice.model.controller.OrderController - Getting master by order with id1
+[12:35:43.744] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.744] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.744] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.750] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.750] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.750] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.758] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.758] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.758] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.760] [main] INFO  autoservice.model.controller.BookingController - GET /api/schedule/free-spots - fetching free spots count by date 2026-03-31T12:35:43.758053600
+[12:35:43.761] [main] INFO  autoservice.model.controller.BookingController - Number of free spots by date 1
+[12:35:43.767] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.767] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.768] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.769] [main] INFO  autoservice.model.controller.BookingController - GET /api/schedule/closest-date - fetching closest date by duration 1
+[12:35:43.769] [main] INFO  autoservice.model.controller.BookingController - Closest date with duration=1 successfully found
+[12:35:43.862] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.862] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.862] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.918] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.918] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.918] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.921] [main] WARN  autoservice.model.exceptions.GlobalExceptionHandler - Authentication failed: Invalid username or password
+[12:35:43.931] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:35:43.931] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:35:43.931] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:35:43.935] [main] INFO  autoservice.model.controller.AuthController - POST /api/register — user with username=name trying to register
+[12:35:43.942] [main] INFO  autoservice.model.controller.AuthController - User created successfully with id=null
+[12:38:03.053] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:38:03.056] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:38:03.061] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 4 ms
+[12:38:03.120] [main] INFO  autoservice.model.controller.DataExportController - GET /api/export/orders - initiating orders export to CSV
+[12:38:03.133] [main] INFO  autoservice.model.controller.DataExportController - orders export completed
+[12:38:03.187] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:38:03.187] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:38:03.187] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:38:03.189] [main] INFO  autoservice.model.controller.DataExportController - GET /api/export/masters - initiating masters export to CSV
+[12:38:03.190] [main] INFO  autoservice.model.controller.DataExportController - masters export completed
+[12:38:03.201] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:38:03.201] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:38:03.201] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:38:03.202] [main] INFO  autoservice.model.controller.DataExportController - GET /api/export/garage-spots - initiating garage spots export to CSV
+[12:38:03.204] [main] INFO  autoservice.model.controller.DataExportController - garage spots export completed
+[12:39:01.571] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:39:01.573] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:39:01.577] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 2 ms
+[12:39:01.629] [main] INFO  autoservice.model.controller.DataImportController - POST /api/import/masters - initiating masters import from CSV
+[12:39:01.645] [main] INFO  autoservice.model.controller.DataImportController - masters successfully imported
+[12:39:01.691] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:39:01.691] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:39:01.691] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:39:01.692] [main] INFO  autoservice.model.controller.DataImportController - POST /api/import/garage-spots - initiating garage spots import from CSV
+[12:39:01.692] [main] INFO  autoservice.model.controller.DataImportController - garage spots successfully imported
+[12:39:01.702] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[12:39:01.702] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[12:39:01.702] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[12:39:01.703] [main] INFO  autoservice.model.controller.DataImportController - POST /api/import/orders - initiating orders import from CSV
+[12:39:01.703] [main] INFO  autoservice.model.controller.DataImportController - orders successfully imported
