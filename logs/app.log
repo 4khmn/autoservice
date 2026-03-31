@@ -2915,3 +2915,683 @@ org.springframework.http.converter.HttpMessageNotReadableException: Required req
 [23:38:35.168] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 2 ms
 [23:38:35.253] [main] INFO  autoservice.model.controller.MasterController - GET /api/masters/1/active-order - fetching order by master with id=1
 [23:38:35.256] [main] INFO  autoservice.model.controller.MasterController - order with id=1 by master with id=1 was successfully fetched
+[23:42:54.626] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[23:42:54.628] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[23:42:54.632] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 2 ms
+[23:42:54.717] [main] INFO  autoservice.model.controller.OrderController - GET /api/orders/1 - fetching order by id=1
+[23:42:54.720] [main] INFO  autoservice.model.controller.OrderController - order with id=1 was successfully fetched
+[23:42:54.828] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[23:42:54.828] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[23:42:54.828] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[23:42:54.893] [main] INFO  autoservice.model.controller.OrderController - POST /api/orders - creating order=OrderCreateDto[date=null, description=null, durationInHours=1, price=null, masterId=null]
+[23:42:54.908] [main] ERROR autoservice.model.exceptions.GlobalExceptionHandler - Unhandled exception at /api/orders: 
+org.mockito.exceptions.misusing.PotentialStubbingProblem: 
+Strict stubbing argument mismatch. Please check:
+ - this invocation of 'addOrder' method:
+    orderService.addOrder(
+    null,
+    1,
+    null,
+    autoservice.model.entities.User@6c9b44bf
+);
+    -> at autoservice.model.controller.OrderController.createOrder(OrderController.java:55)
+ - has following stubbing(s) with different arguments:
+    1. orderService.addOrder("", 0, null, null);
+      -> at autoservice.model.controller.OrderControllerTest.createOrder_WithoutDateAndMaster_ShouldReturnCreated(OrderControllerTest.java:87)
+Typically, stubbing argument mismatch indicates user mistake when writing tests.
+Mockito fails early so that you can debug potential problem easily.
+However, there are legit scenarios when this exception generates false negative signal:
+  - stubbing the same method multiple times using 'given().will()' or 'when().then()' API
+    Please use 'will().given()' or 'doReturn().when()' API for stubbing.
+  - stubbed method is intentionally invoked with different arguments by code under test
+    Please use default or 'silent' JUnit Rule (equivalent of Strictness.LENIENT).
+For more information see javadoc for PotentialStubbingProblem class.
+	at autoservice.model.service.OrderService.addOrder(OrderService.java:153)
+	at autoservice.model.controller.OrderController.createOrder(OrderController.java:55)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:547)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at org.springframework.test.web.servlet.TestDispatcherServlet.service(TestDispatcherServlet.java:72)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:614)
+	at org.springframework.mock.web.MockFilterChain$ServletFilterProxy.doFilter(MockFilterChain.java:165)
+	at org.springframework.mock.web.MockFilterChain.doFilter(MockFilterChain.java:132)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:201)
+	at autoservice.model.controller.OrderControllerTest.createOrder_WithoutDateAndMaster_ShouldReturnCreated(OrderControllerTest.java:89)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:63)
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:66)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)
+[23:42:54.927] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[23:42:54.927] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[23:42:54.927] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[23:42:54.928] [main] INFO  autoservice.model.controller.OrderController - PATCH /api/orders/1/close - closing order with id=1
+[23:42:54.928] [main] INFO  autoservice.model.controller.OrderController - Order with id=1 successfully closed
+[23:42:54.948] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[23:42:54.948] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[23:42:54.948] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[23:42:54.950] [main] INFO  autoservice.model.controller.OrderController - PATCH /api/orders/1/shift - shifting order with id=1
+[23:42:54.951] [main] INFO  autoservice.model.controller.OrderController - Order with id=1 successfully shifted
+[23:42:54.962] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[23:42:54.962] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[23:42:54.962] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[23:42:54.965] [main] INFO  autoservice.model.controller.OrderController - GET /api/orders/999 - fetching order by id=999
+[23:42:54.981] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[23:42:54.981] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[23:42:54.981] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[23:42:54.982] [main] INFO  autoservice.model.controller.OrderController - DELETE /api/orders - deleting order=1
+[23:42:54.982] [main] INFO  autoservice.model.controller.OrderController - order with id=1 was successfully deleted
+[23:42:54.994] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[23:42:54.994] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[23:42:54.995] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+[23:42:54.997] [main] INFO  autoservice.model.controller.OrderController - GET /api/orders?sort=BY_CREATION_DATE - sorting orders by decision=BY_CREATION_DATE
+[23:42:54.997] [main] INFO  autoservice.model.controller.OrderController - Orders successfully sorted by decision=BY_CREATION_DATE
+[23:42:55.020] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[23:42:55.020] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[23:42:55.020] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[23:42:55.023] [main] INFO  autoservice.model.controller.OrderController - Getting master by order with id1
+[23:42:55.023] [main] INFO  autoservice.model.controller.OrderController - Master successfully found by order with master_id=10
+[23:42:55.041] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[23:42:55.042] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[23:42:55.042] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[23:42:55.048] [main] INFO  autoservice.model.controller.OrderController - GET /api/orders/history - sorting orders by time frame [2026-03-29T23:42:55.042147700 - 2026-03-30T23:42:55.042147700] by decision=BY_CREATION_DATE
+[23:42:55.049] [main] INFO  autoservice.model.controller.OrderController - Orders successfully sorted by time frame [2026-03-29T23:42:55.042147700 - 2026-03-30T23:42:55.042147700] by decision=BY_CREATION_DATE
+[23:43:46.806] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[23:43:46.807] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[23:43:46.811] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 2 ms
+[23:43:46.906] [main] INFO  autoservice.model.controller.OrderController - GET /api/orders/999 - fetching order by id=999
+[23:43:47.840] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[23:43:47.843] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[23:43:47.847] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 3 ms
+[23:43:47.948] [main] INFO  autoservice.model.controller.OrderController - GET /api/orders/1 - fetching order by id=1
+[23:43:47.952] [main] INFO  autoservice.model.controller.OrderController - order with id=1 was successfully fetched
+[23:44:21.421] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[23:44:21.423] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[23:44:21.425] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 2 ms
+[23:44:21.598] [main] INFO  autoservice.model.controller.OrderController - POST /api/orders - creating order=OrderCreateDto[date=null, description=null, durationInHours=1, price=null, masterId=null]
+[23:44:21.617] [main] ERROR autoservice.model.exceptions.GlobalExceptionHandler - Unhandled exception at /api/orders: 
+org.mockito.exceptions.misusing.PotentialStubbingProblem: 
+Strict stubbing argument mismatch. Please check:
+ - this invocation of 'addOrder' method:
+    orderService.addOrder(
+    null,
+    1,
+    null,
+    autoservice.model.entities.User@3b9ac754
+);
+    -> at autoservice.model.controller.OrderController.createOrder(OrderController.java:55)
+ - has following stubbing(s) with different arguments:
+    1. orderService.addOrder("", 0, null, null);
+      -> at autoservice.model.controller.OrderControllerTest.createOrder_WithoutDateAndMaster_ShouldReturnCreated(OrderControllerTest.java:84)
+Typically, stubbing argument mismatch indicates user mistake when writing tests.
+Mockito fails early so that you can debug potential problem easily.
+However, there are legit scenarios when this exception generates false negative signal:
+  - stubbing the same method multiple times using 'given().will()' or 'when().then()' API
+    Please use 'will().given()' or 'doReturn().when()' API for stubbing.
+  - stubbed method is intentionally invoked with different arguments by code under test
+    Please use default or 'silent' JUnit Rule (equivalent of Strictness.LENIENT).
+For more information see javadoc for PotentialStubbingProblem class.
+	at autoservice.model.service.OrderService.addOrder(OrderService.java:153)
+	at autoservice.model.controller.OrderController.createOrder(OrderController.java:55)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:547)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at org.springframework.test.web.servlet.TestDispatcherServlet.service(TestDispatcherServlet.java:72)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:614)
+	at org.springframework.mock.web.MockFilterChain$ServletFilterProxy.doFilter(MockFilterChain.java:165)
+	at org.springframework.mock.web.MockFilterChain.doFilter(MockFilterChain.java:132)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:201)
+	at autoservice.model.controller.OrderControllerTest.createOrder_WithoutDateAndMaster_ShouldReturnCreated(OrderControllerTest.java:86)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:63)
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:66)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)
+[11:30:30.263] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:30:30.265] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:30:30.268] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 2 ms
+[11:30:30.448] [main] INFO  autoservice.model.controller.OrderController - POST /api/orders - creating order=OrderCreateDto[date=null, description=null, durationInHours=1, price=null, masterId=null]
+[11:30:30.466] [main] ERROR autoservice.model.exceptions.GlobalExceptionHandler - Unhandled exception at /api/orders: 
+org.mockito.exceptions.misusing.PotentialStubbingProblem: 
+Strict stubbing argument mismatch. Please check:
+ - this invocation of 'addOrder' method:
+    orderService.addOrder(
+    null,
+    1,
+    null,
+    autoservice.model.entities.User@798deee8
+);
+    -> at autoservice.model.controller.OrderController.createOrder(OrderController.java:55)
+ - has following stubbing(s) with different arguments:
+    1. orderService.addOrder("", 0, null, null);
+      -> at autoservice.model.controller.OrderControllerTest.createOrder_WithoutDateAndMaster_ShouldReturnCreated(OrderControllerTest.java:84)
+Typically, stubbing argument mismatch indicates user mistake when writing tests.
+Mockito fails early so that you can debug potential problem easily.
+However, there are legit scenarios when this exception generates false negative signal:
+  - stubbing the same method multiple times using 'given().will()' or 'when().then()' API
+    Please use 'will().given()' or 'doReturn().when()' API for stubbing.
+  - stubbed method is intentionally invoked with different arguments by code under test
+    Please use default or 'silent' JUnit Rule (equivalent of Strictness.LENIENT).
+For more information see javadoc for PotentialStubbingProblem class.
+	at autoservice.model.service.OrderService.addOrder(OrderService.java:153)
+	at autoservice.model.controller.OrderController.createOrder(OrderController.java:55)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:547)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at org.springframework.test.web.servlet.TestDispatcherServlet.service(TestDispatcherServlet.java:72)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:614)
+	at org.springframework.mock.web.MockFilterChain$ServletFilterProxy.doFilter(MockFilterChain.java:165)
+	at org.springframework.mock.web.MockFilterChain.doFilter(MockFilterChain.java:132)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:201)
+	at autoservice.model.controller.OrderControllerTest.createOrder_WithoutDateAndMaster_ShouldReturnCreated(OrderControllerTest.java:86)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:63)
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:66)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)
+[11:31:41.488] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:31:41.490] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:31:41.493] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 2 ms
+[11:31:41.673] [main] INFO  autoservice.model.controller.OrderController - POST /api/orders - creating order=OrderCreateDto[date=null, description=null, durationInHours=1, price=null, masterId=null]
+[11:31:41.692] [main] ERROR autoservice.model.exceptions.GlobalExceptionHandler - Unhandled exception at /api/orders: 
+org.mockito.exceptions.misusing.PotentialStubbingProblem: 
+Strict stubbing argument mismatch. Please check:
+ - this invocation of 'addOrder' method:
+    orderService.addOrder(
+    null,
+    1,
+    null,
+    autoservice.model.entities.User@6c33da7a
+);
+    -> at autoservice.model.controller.OrderController.createOrder(OrderController.java:55)
+ - has following stubbing(s) with different arguments:
+    1. orderService.addOrder(null, 0, null, null);
+      -> at autoservice.model.controller.OrderControllerTest.createOrder_WithoutDateAndMaster_ShouldReturnCreated(OrderControllerTest.java:84)
+Typically, stubbing argument mismatch indicates user mistake when writing tests.
+Mockito fails early so that you can debug potential problem easily.
+However, there are legit scenarios when this exception generates false negative signal:
+  - stubbing the same method multiple times using 'given().will()' or 'when().then()' API
+    Please use 'will().given()' or 'doReturn().when()' API for stubbing.
+  - stubbed method is intentionally invoked with different arguments by code under test
+    Please use default or 'silent' JUnit Rule (equivalent of Strictness.LENIENT).
+For more information see javadoc for PotentialStubbingProblem class.
+	at autoservice.model.service.OrderService.addOrder(OrderService.java:153)
+	at autoservice.model.controller.OrderController.createOrder(OrderController.java:55)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:547)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at org.springframework.test.web.servlet.TestDispatcherServlet.service(TestDispatcherServlet.java:72)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:614)
+	at org.springframework.mock.web.MockFilterChain$ServletFilterProxy.doFilter(MockFilterChain.java:165)
+	at org.springframework.mock.web.MockFilterChain.doFilter(MockFilterChain.java:132)
+	at org.springframework.test.web.servlet.MockMvc.perform(MockMvc.java:201)
+	at autoservice.model.controller.OrderControllerTest.createOrder_WithoutDateAndMaster_ShouldReturnCreated(OrderControllerTest.java:86)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:728)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:218)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:214)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:139)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:63)
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:66)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38)
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11)
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35)
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:237)
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:58)
+[11:31:56.341] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:31:56.343] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:31:56.347] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 2 ms
+[11:31:56.523] [main] INFO  autoservice.model.controller.OrderController - POST /api/orders - creating order=OrderCreateDto[date=null, description=null, durationInHours=1, price=null, masterId=null]
+[11:31:56.532] [main] INFO  autoservice.model.controller.OrderController - order with id=1 was successfully created
+[11:32:54.671] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:32:54.673] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:32:54.676] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 2 ms
+[11:32:54.755] [main] INFO  autoservice.model.controller.OrderController - Getting master by order with id1
+[11:34:32.163] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:34:32.166] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:34:32.170] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 2 ms
+[11:34:32.243] [main] INFO  autoservice.model.controller.OrderController - GET /api/orders?sort=BY_CREATION_DATE - sorting orders by decision=BY_CREATION_DATE
+[11:34:32.246] [main] INFO  autoservice.model.controller.OrderController - Orders successfully sorted by decision=BY_CREATION_DATE
+[11:34:42.146] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:34:42.148] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:34:42.151] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 2 ms
+[11:34:42.228] [main] INFO  autoservice.model.controller.OrderController - GET /api/orders?sort=BY_CREATION_DATE - sorting orders by decision=BY_CREATION_DATE
+[11:34:42.232] [main] INFO  autoservice.model.controller.OrderController - Orders successfully sorted by decision=BY_CREATION_DATE
+[11:36:21.368] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:36:21.370] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:36:21.373] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 2 ms
+[11:36:27.129] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:36:27.131] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:36:27.134] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 2 ms
+[11:38:03.894] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:38:03.896] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:38:03.899] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 2 ms
+[11:38:03.986] [main] INFO  autoservice.model.controller.OrderController - GET /api/orders/history - sorting orders by time frame [2026-03-30T11:38:03.902801700 - 2026-03-31T11:38:03.902801700] by decision=BY_CREATION_DATE
+[11:38:03.990] [main] INFO  autoservice.model.controller.OrderController - Orders successfully sorted by time frame [2026-03-30T11:38:03.902801700 - 2026-03-31T11:38:03.902801700] by decision=BY_CREATION_DATE
+[11:59:01.949] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:01.952] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:01.956] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 3 ms
+[11:59:14.831] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:14.834] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:14.837] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+[11:59:14.942] [main] INFO  autoservice.model.controller.MasterController - GET /api/masters/sort?decision=BY_NAME
+[11:59:14.947] [main] INFO  autoservice.model.controller.MasterController - Masters successfully sorted by decision=BY_NAME
+[11:59:15.085] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:15.085] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:15.085] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[11:59:15.093] [main] INFO  autoservice.model.controller.MasterController - GET /api/masters/999 - fetching master by id=999
+[11:59:15.112] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:15.113] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:15.113] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[11:59:15.116] [main] INFO  autoservice.model.controller.MasterController - GET /api/masters - fetching all masters
+[11:59:15.116] [main] INFO  autoservice.model.controller.MasterController - masters was successfully fetched
+[11:59:15.130] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:15.130] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:15.130] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[11:59:15.132] [main] INFO  autoservice.model.controller.MasterController - DELETE /api/masters/5 - deleting master by id=5
+[11:59:15.132] [main] INFO  autoservice.model.controller.MasterController - master with id=5 was successfully deleted
+[11:59:15.150] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:15.150] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:15.150] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[11:59:15.153] [main] INFO  autoservice.model.controller.MasterController - GET /api/masters/1 - fetching master by id=1
+[11:59:15.153] [main] INFO  autoservice.model.controller.MasterController - master with id=1 was successfully fetched
+[11:59:15.169] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:15.169] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:15.169] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[11:59:15.229] [main] INFO  autoservice.model.controller.MasterController - POST /api/masters - creating master=MasterCreateDto[name=denis, salary=1]
+[11:59:15.231] [main] INFO  autoservice.model.controller.MasterController - master with id=1 was successfully created
+[11:59:15.243] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:15.244] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:15.244] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[11:59:15.247] [main] INFO  autoservice.model.controller.MasterController - GET /api/masters/1/active-order - fetching order by master with id=1
+[11:59:15.247] [main] INFO  autoservice.model.controller.MasterController - order with id=1 by master with id=1 was successfully fetched
+[11:59:15.518] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:15.518] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:15.518] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[11:59:15.521] [main] INFO  autoservice.model.controller.GarageSpotController - GET /api/garage-spots/999 - fetching garageSpot by id=999
+[11:59:15.533] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:15.533] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:15.533] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[11:59:15.539] [main] INFO  autoservice.model.controller.GarageSpotController - POST /api/garage-spots - creating garageSpot=GarageSpotCreateDto[size=15.0, hasLift=false, hasPit=true]
+[11:59:15.547] [main] INFO  autoservice.model.controller.GarageSpotController - garageSpot with id=100 was successfully created
+[11:59:15.557] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:15.557] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:15.557] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[11:59:15.558] [main] INFO  autoservice.model.controller.GarageSpotController - DELETE /api/garage-spots/5 - deleting garageSpot by id=5
+[11:59:15.558] [main] INFO  autoservice.model.controller.GarageSpotController - garageSpot with id=5 was successfully deleted
+[11:59:15.567] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:15.567] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:15.568] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[11:59:15.569] [main] INFO  autoservice.model.controller.GarageSpotController - GET /api/garage-spots - fetching all garageSpots
+[11:59:15.570] [main] INFO  autoservice.model.controller.GarageSpotController - garageSpots was successfully fetched
+[11:59:15.581] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:15.581] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:15.581] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[11:59:15.584] [main] INFO  autoservice.model.controller.GarageSpotController - GET /api/garage-spots/1 - fetching garageSpot by id=1
+[11:59:15.584] [main] INFO  autoservice.model.controller.GarageSpotController - garageSpot with id=1 was successfully fetched
+[11:59:15.594] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:15.595] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:15.595] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[11:59:15.596] [main] INFO  autoservice.model.controller.GarageSpotController - GET /api/garage-spots/free - fetching all free garageSpots
+[11:59:15.597] [main] INFO  autoservice.model.controller.GarageSpotController - free garageSpots was  successfully fetched
+[11:59:15.953] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:15.953] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:15.954] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+[11:59:15.955] [main] INFO  autoservice.model.controller.OrderController - GET /api/orders/1 - fetching order by id=1
+[11:59:15.955] [main] INFO  autoservice.model.controller.OrderController - order with id=1 was successfully fetched
+[11:59:15.969] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:15.969] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:15.969] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[11:59:16.008] [main] INFO  autoservice.model.controller.OrderController - POST /api/orders - creating order=OrderCreateDto[date=null, description=null, durationInHours=1, price=null, masterId=null]
+[11:59:16.013] [main] INFO  autoservice.model.controller.OrderController - order with id=1 was successfully created
+[11:59:16.024] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:16.024] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:16.024] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[11:59:16.025] [main] INFO  autoservice.model.controller.OrderController - PATCH /api/orders/1/close - closing order with id=1
+[11:59:16.026] [main] INFO  autoservice.model.controller.OrderController - Order with id=1 successfully closed
+[11:59:16.034] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:16.034] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:16.034] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[11:59:16.036] [main] INFO  autoservice.model.controller.OrderController - PATCH /api/orders/1/shift - shifting order with id=1
+[11:59:16.036] [main] INFO  autoservice.model.controller.OrderController - Order with id=1 successfully shifted
+[11:59:16.045] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:16.045] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:16.045] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[11:59:16.046] [main] INFO  autoservice.model.controller.OrderController - GET /api/orders/999 - fetching order by id=999
+[11:59:16.055] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:16.055] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:16.055] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[11:59:16.056] [main] INFO  autoservice.model.controller.OrderController - DELETE /api/orders - deleting order=1
+[11:59:16.056] [main] INFO  autoservice.model.controller.OrderController - order with id=1 was successfully deleted
+[11:59:16.063] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:16.063] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:16.063] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[11:59:16.077] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:16.077] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:16.078] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 1 ms
+[11:59:16.080] [main] INFO  autoservice.model.controller.OrderController - GET /api/orders/active?sort=BY_CREATION_DATE - sorting active orders by decision=BY_CREATION_DATE
+[11:59:16.080] [main] INFO  autoservice.model.controller.OrderController - Active orders successfully sorted by decision=BY_CREATION_DATE
+[11:59:16.091] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:16.092] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:16.092] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[11:59:16.093] [main] INFO  autoservice.model.controller.OrderController - GET /api/orders?sort=BY_CREATION_DATE - sorting orders by decision=BY_CREATION_DATE
+[11:59:16.094] [main] INFO  autoservice.model.controller.OrderController - Orders successfully sorted by decision=BY_CREATION_DATE
+[11:59:16.102] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:16.102] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:16.102] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[11:59:16.104] [main] INFO  autoservice.model.controller.OrderController - Getting master by order with id1
+[11:59:16.104] [main] INFO  autoservice.model.controller.OrderController - Master successfully found by order with master_id=10
+[11:59:16.112] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:16.112] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:16.112] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[11:59:16.118] [main] INFO  autoservice.model.controller.OrderController - GET /api/orders/history - sorting orders by time frame [2026-03-30T11:59:16.113429700 - 2026-03-31T11:59:16.113429700] by decision=BY_CREATION_DATE
+[11:59:16.118] [main] INFO  autoservice.model.controller.OrderController - Orders successfully sorted by time frame [2026-03-30T11:59:16.113429700 - 2026-03-31T11:59:16.113429700] by decision=BY_CREATION_DATE
+[11:59:16.131] [main] INFO  org.springframework.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+[11:59:16.131] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Initializing Servlet ''
+[11:59:16.131] [main] INFO  org.springframework.test.web.servlet.TestDispatcherServlet - Completed initialization in 0 ms
+[11:59:16.133] [main] INFO  autoservice.model.controller.OrderController - Getting master by order with id1
