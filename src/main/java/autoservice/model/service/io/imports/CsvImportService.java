@@ -275,7 +275,7 @@ public class CsvImportService {
         }
     }
 
-    public boolean booleanParser(String value) {
+    private boolean booleanParser(String value) {
         if (value.equals("true")) {
             return true;
         } else if (value.equals("false")) {

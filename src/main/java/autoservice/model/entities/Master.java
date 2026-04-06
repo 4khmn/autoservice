@@ -32,10 +32,6 @@ public class Master implements Identifiable {
     }
 
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
     public void setCalendar(TreeSet<TimeSlot> calendar) {
         this.calendar = calendar;
     }

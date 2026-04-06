@@ -19,13 +19,15 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.PrePersist;
+
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
 @Table(name = "orders")
-public class Order implements Comparable<Order>, Identifiable {
+public class Order implements Comparable<Order>, Identifiable, Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -107,7 +109,7 @@ public class Order implements Comparable<Order>, Identifiable {
 
 
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

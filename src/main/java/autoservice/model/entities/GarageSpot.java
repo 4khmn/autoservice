@@ -44,9 +44,6 @@ public class GarageSpot implements Identifiable {
         this.calendar = calendar;
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public GarageSpot() {
         this.calendar = new TreeSet<>();
